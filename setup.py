@@ -15,30 +15,22 @@ def read(fname):
 
 setup(
     name='Flask-KVSession',
-    version='0.4dev',
-    url='https://github.com/mbr',
+    version='0.6.3.dev1',
+    url='https://github.com/mbr/flask-kvsession',
     license='MIT',
     author='Marc Brinkmann',
     author_email='git@marcbrinkmann.de',
     description='Transparent server-side session support for flask',
     long_description=read('README.rst'),
-    packages=['flaskext', 'tests'],
-    namespace_packages=['flaskext'],
+    packages=['flask_kvsession'],
     zip_safe=False,
     platforms='any',
     install_requires=[
-        'Flask', 'simplekv', 'werkzeug', 'itsdangerous'
+        'Flask>=0.8', 'simplekv>=0.9.2', 'werkzeug', 'itsdangerous>=0.20',
+        'six',
     ],
-    tests_require=tests_require,
-    test_suite='tests',
     classifiers=[
-        'Development Status :: 4 - Beta',
-        'Environment :: Web Environment',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: MIT License',
-        'Operating System :: OS Independent',
-        'Programming Language :: Python',
-        'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
-        'Topic :: Software Development :: Libraries :: Python Modules'
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 3',
     ]
 )

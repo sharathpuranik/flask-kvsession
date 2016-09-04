@@ -1,34 +1,38 @@
-Flask-KVSession is a drop-in replacement for `Flask
-<http://flask.pocoo.org>`_'s signed cookie-based session management. Instead of
-storing data on the client, only a securely generated ID is stored on the
-client, while the actual session data resides on the server.
+Flask-KVSession
+===============
+
+Flask-KVSession is an `MIT-licensed
+<https://github.com/mbr/flask-kvsession/blob/master/LICENSE>`_ server-side
+session replacement for `Flask <http://flask.pocoo.org>`_'s signed
+client-based session management. Instead of storing data on the client, only a
+securely generated ID is stored on the client, while the actual session data
+resides on the server.
 
 This has two major advantages:
 
 * Clients no longer see the session information
-* It is possible to securely destroy sessions. Even if the session cookie is
-  stolen, it is no longer possible to use the session.
+* It is possible to securely destroy sessions to protect against replay
+  attacks.
 
 Other things are possible with server side session that are impossible with
 clients side sessions, like inspecting and manipulating data in absence of the
-client. The drawback is that sessions need to be stored. Flask-KVSession uses
-the `simplekv <http://github.com/mbr/simplekv>`_-package for storing session
-data on a variety of backends.
+client.
+
+Flask-KVSession uses the `simplekv <http://github.com/mbr/simplekv>`_-package
+for storing session data on a variety of backends, including `redis
+<http://redis.io>`_, `memcached <http://memcached.org>`_, SQL databases using
+`SQLAlchemy <http://sqlalchemy.org>`_, `mongoDB <http://www.mongodb.org/>`_ or
+just flat files.
 
 Integration with Flask is seamless, once the extension is loaded for a Flask
-application, it transparently replaces (or rather, extends) Flask's own Session
-class for this instance. Any application working with sessions should work the
-same with Flask-KVSession.
+application, it transparently replaces Flask's own Session management. Any
+application working with sessions should work the same with Flask-KVSession
+(if it does not, file a bug!).
 
-Documentation
-=============
-Flask-KVSessions includes good unit test coverage. See also:
 
-* `documentation <http://flask-kvsession.readthedocs.org>`_.
-* `development version
-  <https://github.com/mbr/flask-kvsession/tarball/master#egg=Flask-KVSession>`_
+Documentation and development
+-----------------------------
 
-License
-=======
-Flask-KVSession is `MIT-licensed
-<https://github.com/mbr/flask-kvsession/blob/master/LICENSE>`_.
+Development `happens on github <https://github.com/mbr/flask-kvsession/>`_,
+you can find the `documentation on PyPI
+<http://pythonhosted.org/Flask-KVSession>`_.
